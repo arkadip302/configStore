@@ -1,0 +1,31 @@
+# Java-specific
+*.class
+*.jar
+/target/
+*.iml
+*.idea/
+# General
+.DS_Store
+node_modules/
+*.log
+/build/
+.env
+
+# IDE/Editor-specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+
+# Maven/Gradle
+/.mvn/
+.gradle/
+
+
+# OS or Compiler-generated
+Thumbs.db
+*.swp
+*.tmp
+
+.DS_Store
