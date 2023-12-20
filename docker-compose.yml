@@ -1,0 +1,37 @@
+version: "3.4"
+
+services:
+  config-store:
+    build: .
+    ports:
+      - "8888:8888"
+    networks:
+      - tux_network
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: cloud
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:latest
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root1
+      MYSQL_DATABASE: cloud
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    networks:
+      - tux_network
+    volumes:
+      - mysql_data:/var/lib/mysql
+networks:
+  tux_network:
+
+    driver: bridge
+volumes:
+  mysql_data:
